@@ -1,0 +1,7 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: Isaac Moore <rmsy@me.com>
+website: http://rmsy.github.com/
+database: false
+main: com.github.rmsy.bukkiteventdemo.BukkitEventDemo
