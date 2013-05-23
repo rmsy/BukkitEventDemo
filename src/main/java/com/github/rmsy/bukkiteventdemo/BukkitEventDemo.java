@@ -1,5 +1,8 @@
 package com.github.rmsy.bukkiteventdemo;
 
+import com.github.rmsy.bukkiteventdemo.listeners.GenericListener;
+import org.bukkit.Bukkit;
+import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nullable;
@@ -15,12 +18,14 @@ public class BukkitEventDemo extends JavaPlugin {
     @Nullable
     private Logger console;
 
+    public void onDisable() {
+        this.console = null;
+        HandlerList.unregisterAll(this);
+    }
+
     @Override
     public void onEnable() {
         this.console = getLogger();
-    }
-
-    public void onDisable() {
-        this.console = null;
+        Bukkit.getPluginManager().registerEvents(new GenericListener(), this);
     }
 }
